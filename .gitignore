@@ -1,0 +1,21 @@
+# Artifacts
+dist
+coverage
+.nyc_output
+
+# Dependencies
+node_modules
+package-lock.json
+
+# Editors
+.idea
+.vscode
+
+# System files
+.DS_STORE
+*.swap
+*.swo
+
+# Config files
+*.env
+*.aes

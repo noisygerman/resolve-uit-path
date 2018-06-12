@@ -1,0 +1,33 @@
+{
+  "name": "@noisygerman/resolve-uit-path",
+  "version": "1.0.0",
+  "description": "Resolves the path from your spec file at __filename to the corresponding unit-in-test's file",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "mocha --require ./spec/.config/bootstrap.js --colors ./spec/**/*.test.js "
+  },
+  "keywords": [
+    "unit-tests",
+    "testing",
+    "util",
+    "utilities",
+    "test-utilities"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noisygerman/resolve-uit-path.git"
+  },
+  "private": false,
+  "author": "Markus Westerholz <mwesterholz@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  },
+  "engines": {
+    "node": ">=6.12.3"
+  }
+}
