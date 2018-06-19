@@ -70,7 +70,7 @@ Using this little library, you can do this instead in your test file
 ```js
 // file: spec/lib/path/back/to/the/module/with/the/unitInTest/index.test.js
 
-const resolveUitPath = require( '@noisygerman/resolve-uit-path' )();
+const resolveUitPath = require( 'resolve-uit-path' )();
 const uitPath = resolveUitPath( __filename );
 
 describe( `The ${ uitPath } function`, ()=>{
@@ -95,7 +95,7 @@ For example, if you used the `-spec.js` extension instead of `.test.js`, you wou
 
 // file: spec/lib/path/back/to/the/module/with/the/unitInTest/index-spec.js
 
-const resolveUitPath = require( '@noisygerman/resolve-uit-path' )( { specFileExtension: '-spec.js'});
+const resolveUitPath = require( 'resolve-uit-path' )( { specFileExtension: '-spec.js'});
 const uitPath = resolveUitPath( __filename );
 
 describe( `The ${ uitPath } function`, ()=>{
