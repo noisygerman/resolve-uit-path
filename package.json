@@ -1,6 +1,6 @@
 {
   "name": "resolve-uit-path",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Resolves the path from your spec file at __filename to the corresponding unit-in-test's file",
   "main": "lib/index.js",
   "directories": {

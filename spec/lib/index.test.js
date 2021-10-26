@@ -36,10 +36,10 @@ describe( 'The resolveUitPath function', ()=>{
 
     const resolvePathToUnitInTest = createResolvePathToUnitInTest();
 
-    const specPath = path.join( 'lib', 'spec', 'index.test.js' )
+    const specPath = path.join( 'lib', 'subfolder', 'spec', 'index.test.js' )
 
     expect( resolvePathToUnitInTest( specPath ) )
-      .to.equal( uitPath );
+      .to.equal( path.join( '..', '..', '..', 'lib', 'subfolder', 'index.js' ) );
 
   } );
 
