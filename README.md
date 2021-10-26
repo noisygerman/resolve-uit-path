@@ -109,14 +109,37 @@ describe( `The ${ uitPath } function`, ()=>{
 
 } );
 ```
+
+You can also configure the name of your spec folder:
+
+```js
+
+// file: tests/lib/path/back/to/the/module/with/the/unitInTest/index.test.js
+
+const resolveUitPath = require( 'resolve-uit-path' )( { specDirName: 'tests'});
+const uitPath = resolveUitPath( __filename );
+
+describe( `The ${ uitPath } function`, ()=>{
+
+  it( 'should throw if called without arguments', ()=>{
+
+    const uit = require( uitPath );
+    expect( uit ).to.throw();
+
+  });
+
+} );
+```
+
+
 ### Root Folder
 
-The library assumes that the level-difference between the spec and the uit is 1, meaning that you can store your test in `spec`, `tests`, `specFiles`, etc, but within the spec folder, the path must match.
+The library assumes that the level-difference between the spec and the uit is 1, meaning that you can store your test in `spec`, `tests`, `specFiles`, etc, but within the spec folder itself, the path must match.
 
 :white_check_mark: will work:
 
 ```bash
-project/
+project
 ├── lib
 │   └── path
 └── spec
@@ -135,24 +158,37 @@ project/
         └── path
 ```
 
-:white_check_mark: will work for both the spec folder and the spec-integration folder
+:white_check_mark: will work for all spec folders
 
 ```bash
-project/
+project
 ├── lib
-│   └── path
-├── spec
-│   └── lib
-│       └── path
-└── spec-integration
-    └── lib
-        └── path
+│   ├── common
+│   │   └── path
+│   └── packages
+│       ├── package-a
+│       │   ├── lib
+│       │   │   └── path
+│       │   └── spec
+│       │       └── lib
+│       │           └── path
+│       └── package-b
+│           └── lib
+│               └── path
+└── spec
+    ├── lib
+    │   └── common
+    │       └── path
+    └── packages
+        └── package-b
+            └── lib
+                └── path
 ```
 
 :x: will not work
 
 ```bash
-project/
+project
 ├── lib
 │   └── path
 └── spec

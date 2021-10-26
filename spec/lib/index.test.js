@@ -31,5 +31,34 @@ describe( 'The resolveUitPath function', ()=>{
 
   } );
 
+
+  it( 'support spec dirs at locatations other than the root of the path', ()=>{
+
+    const resolvePathToUnitInTest = createResolvePathToUnitInTest();
+
+    const specPath = path.join( 'lib', 'spec', 'index.test.js' )
+
+    expect( resolvePathToUnitInTest( specPath ) )
+      .to.equal( uitPath );
+
+  } );
+
+
+  it( 'support spec dirs with names other than "spec"', ()=>{
+
+    const { DefaultSpecDirName } = createResolvePathToUnitInTest;
+    const alternateSpecDirName = 'test';
+
+    const specPathWithAlternateSpecDirName = __filename.replace( DefaultSpecDirName, alternateSpecDirName );
+    const resolvePathToUnitInTest = createResolvePathToUnitInTest( { specDirName: alternateSpecDirName } );
+
+    expect( resolvePathToUnitInTest( specPathWithAlternateSpecDirName ) )
+      .to.equal( uitPath );
+
+  } );
+
+
+  
+
 } );
 
